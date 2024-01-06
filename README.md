@@ -1,6 +1,3 @@
-Certainly! Here is the Markdown code for the `README.md` file:
-
-```markdown
 # Numerical Analysis Programming Assignment
 
 This repository contains Java programs developed by the students of Hope Enterprise University College, Department of Computer Science, for the Numerical Analysis programming assignment. Each student in a group of not more than 4 students implemented at least one problem. The submission date for this assignment is January 12, 2024.
