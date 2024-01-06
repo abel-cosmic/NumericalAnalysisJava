@@ -49,7 +49,7 @@ public class MatrixCreator extends JFrame {
         add(new JScrollPane(matrixPanel), BorderLayout.CENTER);
 
         // Set frame properties
-        setSize(800, 400);
+        setSize(600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null); // Center the frame
         setVisible(true);
@@ -91,14 +91,5 @@ public class MatrixCreator extends JFrame {
         matrixPanel.removeAll();
         matrixPanel.revalidate();
         matrixPanel.repaint();
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new MatrixCreator();
-            }
-        });
     }
 }
