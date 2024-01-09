@@ -3,6 +3,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 public class MatrixMultiplier extends JFrame {
     private JTextField rowsField1, colsField1, rowsField2, colsField2;
@@ -158,8 +159,13 @@ public class MatrixMultiplier extends JFrame {
 
     private void multiplyMatrices() {
         // Get the matrices data from the text fields
-        double[][] matrix1 = getMatrixData(matrixPanel1);
-        double[][] matrix2 = getMatrixData(matrixPanel2);
+        int rows1 = Integer.parseInt(rowsField1.getText());
+        int cols1 = Integer.parseInt(colsField1.getText());
+        int rows2 = Integer.parseInt(rowsField2.getText());
+        int cols2 = Integer.parseInt(colsField2.getText());
+
+        double[][] matrix1 = getMatrixData(matrixPanel1, rows1, cols1);
+        double[][] matrix2 = getMatrixData(matrixPanel2, rows2, cols2);
 
         // Perform matrix multiplication
         double[][] result = multiplyMatrices(matrix1, matrix2);
@@ -170,11 +176,9 @@ public class MatrixMultiplier extends JFrame {
         }
     }
 
-    private double[][] getMatrixData(JPanel matrixPanel) {
-        Component[] components = matrixPanel.getComponents();
-        int rows = matrixPanel.getComponentCount() / matrixPanel.getComponent(0).getParent().getComponentCount();
-        int cols = matrixPanel.getComponent(0).getParent().getComponentCount();
 
+    private double[][] getMatrixData(JPanel matrixPanel, int rows, int cols) {
+        Component[] components = matrixPanel.getComponents();
         double[][] matrixData = new double[rows][cols];
 
         int index = 0;
@@ -188,28 +192,31 @@ public class MatrixMultiplier extends JFrame {
         return matrixData;
     }
 
+
     private double[][] multiplyMatrices(double[][] matrix1, double[][] matrix2) {
         int rows1 = matrix1.length;
         int cols1 = matrix1[0].length;
         int rows2 = matrix2.length;
         int cols2 = matrix2[0].length;
 
+        System.out.println(cols1);
+        System.out.println(rows2);
         if (cols1 != rows2) {
             JOptionPane.showMessageDialog(this, "Matrix multiplication is not possible. The number of columns in Matrix 1 must be equal to the number of rows in Matrix 2.", "Error", JOptionPane.ERROR_MESSAGE);
             return null;
-        }
+        }else{
+            double[][] result = new double[rows1][cols2];
 
-        double[][] result = new double[rows1][cols2];
-
-        for (int i = 0; i < rows1; i++) {
-            for (int j = 0; j < cols2; j++) {
-                for (int k = 0; k < cols1; k++) {
-                    result[i][j] += matrix1[i][k] * matrix2[k][j];
+            for (int i = 0; i < rows1; i++) {
+                for (int j = 0; j < cols2; j++) {
+                    for (int k = 0; k < cols1; k++) {
+                        result[i][j] += matrix1[i][k] * matrix2[k][j];
+                    }
                 }
             }
+            return result;
         }
 
-        return result;
     }
 
     private void displayResult(JPanel resultPanel, double[][] result) {
