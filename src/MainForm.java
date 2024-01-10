@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,7 +10,13 @@ public class MainForm extends JFrame {
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(5, 1));
+        panel.setBorder(new EmptyBorder(20, 10, 20, 10)); // Add padding
+        panel.setLayout(new GridLayout(6, 1));
+        JButton question = createProblemButton("Questions", "1. A Java program that accepts two matrices and displays their product.\n" +
+                "2. A Java program that implements interpolation using divided difference formula. Your \n" +
+                "program should display the divided difference table and the corresponding equation.\n" +
+                "3. A Java program that finds the determinant of a square matrix of any row and column size\n" +
+                "4. A Java program that solves system of linear equations using Crammer’s rule.");
         JButton btnMatrixMultiplication = createProblemButton("Matrix Multiplication", "A Java program that accepts two matrices and displays their product.");
         JButton btnInterpolation = createProblemButton("Interpolation", "A Java program that implements interpolation using divided difference formula. Your program should display the divided difference table and the corresponding equation.");
         JButton btnCramersRule = createProblemButton("Cramer's Rule", "A Java program that solves system of linear equations using Cramer’s rule. In your program, try to apply concepts of object-oriented programming and GUI.");
@@ -21,6 +28,7 @@ public class MainForm extends JFrame {
                 GroupMembersList.displayGroupMembers();
             }
         });
+        panel.add(question);
         panel.add(btnMatrixMultiplication);
         panel.add(btnInterpolation);
         panel.add(btnCramersRule);
