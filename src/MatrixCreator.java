@@ -92,4 +92,5 @@ public class MatrixCreator extends JFrame {
         matrixPanel.revalidate();
         matrixPanel.repaint();
     }
+
 }

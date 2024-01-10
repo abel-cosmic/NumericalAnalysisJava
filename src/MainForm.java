@@ -72,8 +72,8 @@ public class MainForm extends JFrame {
                 cramerSolver.setVisible(true);
                 break;
             case "Determinant":
-//                DeterminantSolver determinantSolver = new DeterminantSolver();
-//                determinantSolver.setVisible(true);
+                DeterminantSolver determinantSolver = new DeterminantSolver();
+                determinantSolver.setVisible(true);
                 break;
         }
     }
