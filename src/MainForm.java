@@ -74,8 +74,8 @@ public class MainForm extends JFrame {
                 matrixSolver.setVisible(true);
                 break;
             case "Interpolation":
-//                InterpolationSolver interpolationSolver = new InterpolationSolver();
-//                interpolationSolver.setVisible(true);
+                NewtonInterpolation interpolationSolver = new NewtonInterpolation();
+                interpolationSolver.setVisible(true);
                 break;
             case "Cramer's Rule":
                 CreamersRuleSolver cramerSolver = new CreamersRuleSolver();
