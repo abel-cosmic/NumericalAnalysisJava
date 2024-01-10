@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 public class MatrixCreator extends JFrame {
     private JTextField rowsField, colsField;
-    private JPanel matrixPanel;
+    private final JPanel matrixPanel;
     private JButton generateButton, clearButton;
 
     public MatrixCreator() {
