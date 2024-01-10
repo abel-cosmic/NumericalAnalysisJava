@@ -4,22 +4,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainForm extends JFrame {
-
     public MainForm() {
         setTitle("Numerical Analysis Assignment");
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(5, 1));
-
-        // Problem buttons
         JButton btnMatrixMultiplication = createProblemButton("Matrix Multiplication", "A Java program that accepts two matrices and displays their product.");
         JButton btnInterpolation = createProblemButton("Interpolation", "A Java program that implements interpolation using divided difference formula. Your program should display the divided difference table and the corresponding equation.");
         JButton btnCramersRule = createProblemButton("Cramer's Rule", "A Java program that solves system of linear equations using Cramer’s rule. In your program, try to apply concepts of object-oriented programming and GUI.");
         JButton btnDeterminant = createProblemButton("Determinant", "A Java program that finds the determinant of a square matrix of any row and column size.");
-
-        // Group members button
         JButton btnGroupMembers = new JButton("Group Members");
         btnGroupMembers.addActionListener(new ActionListener() {
             @Override
@@ -27,15 +21,12 @@ public class MainForm extends JFrame {
                 GroupMembersList.displayGroupMembers();
             }
         });
-
         panel.add(btnMatrixMultiplication);
         panel.add(btnInterpolation);
         panel.add(btnCramersRule);
         panel.add(btnDeterminant);
         panel.add(btnGroupMembers);
-
         add(panel);
-
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -61,8 +52,7 @@ public class MainForm extends JFrame {
                 null,
                 new Object[]{"OK"},
                 null);
-
-        if (option == 0) { // OK button clicked
+        if (option == 0) {
             openSolverClass(problemTitle);
         }
     }

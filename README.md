@@ -3,22 +3,21 @@
 This repository contains Java programs developed by the students of Hope Enterprise University College, Department of Computer Science, for the Numerical Analysis programming assignment. Each student in a group of not more than 4 students implemented at least one problem. The submission date for this assignment is January 12, 2024.
 
 ## Group Information
-- **Group Name:** [Your Group Name]
+- **Group Name:** NumericalWizards
 - **Group Members:**
-  1. [Student Name 1]
-  2. [Student Name 2]
-  3. [Student Name 3]
-  4. [Student Name 4]
+  1. Abel Shibabaw RCS/291/21
+  2. Dagim Tesfaye RCS/300/21
+  3. Mohammed Ibrahim RCS/2013/22
 
 ## Problems and Implementations
 
 ### Problem 1: Matrix Product
-**File:** `MatrixProduct.java`
+**File:** `MatrixMultiplier.java`
 
 Description: This Java program accepts two matrices and displays their product.
 
 ### Problem 2: Interpolation using Divided Difference Formula
-**File:** `Interpolation.java`
+**File:** `NewtonInterpolation.java`
 
 Description: This Java program implements interpolation using the divided difference formula. It displays the divided difference table and the corresponding equation.
 
@@ -28,7 +27,7 @@ Description: This Java program implements interpolation using the divided differ
 Description: This Java program finds the determinant of a square matrix of any row and column size.
 
 ### Problem 4: System of Linear Equations using Cramer's Rule
-**File:** `LinearEquationSolver.java`
+**File:** `CreamersRuleSolver.java`
 
 Description: This Java program solves a system of linear equations using Cramer's rule. It applies concepts of object-oriented programming and includes a GUI for user interaction.
 
@@ -43,7 +42,7 @@ Description: This Java program solves a system of linear equations using Cramer'
    javac FileName.java
    ```
 
-   Replace `FileName` with the actual name of the Java file.
+Replace `FileName` with the actual name of the Java file.
 
 5. Run the compiled program using:
 
@@ -59,6 +58,3 @@ Description: This Java program solves a system of linear equations using Cramer'
 - Follow the program's prompts or GUI for interaction.
 
 Feel free to explore and run each program to observe the solutions developed by the students. If you have any questions or issues, please contact the group members or the instructor.
-```
-
-Replace the placeholders such as `[Your Group Name]`, `[Student Name 1]`, etc., with the actual information.
