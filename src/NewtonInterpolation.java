@@ -11,7 +11,7 @@ public class NewtonInterpolation extends JFrame {
         // Create components
         JLabel labelDs = new JLabel("Number of Data sets:");
         numberOfDS = new JTextField(5);
-        JButton enterDataButton = new JButton("Enter Data");
+        JButton enterDataButton = new JButton("Enter Data Set");
         JButton calculateButton = new JButton("Calculate");
         JButton clearButton = new JButton("Clear");
         dataPanel = new JPanel();
