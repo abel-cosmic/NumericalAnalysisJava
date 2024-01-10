@@ -1,9 +1,6 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 public class NewtonInterpolation extends JFrame {
 
     private final JTextField numberOfDS;
@@ -156,10 +153,8 @@ public class NewtonInterpolation extends JFrame {
         int n = table.length;
         StringBuilder result = new StringBuilder();
         result.append("F(x) = ").append(table[0][0]);
-
         for (int i = 1; i < n; i++) {
             result.append(" + ").append(table[i][i]).append(" * ");
-
             for (int j = 0; j < i; j++) {
                 double xValue = x[j];
                 if (xValue < 0) {
