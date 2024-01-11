@@ -2,13 +2,13 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class MatrixCreator extends JFrame {
+public class ExampleCode extends JFrame {
     private final JTextField rowsField;
     private final JTextField colsField;
     private final JPanel matrixPanel;
     private JButton generateButton, clearButton;
 
-    public MatrixCreator() {
+    public ExampleCode() {
         super("Matrix Generator");
         JLabel rowsLabel = new JLabel("Rows:");
         JLabel colsLabel = new JLabel("Columns:");

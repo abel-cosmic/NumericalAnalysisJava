@@ -12,7 +12,7 @@ This repository contains Java programs developed by the students of Hope Enterpr
 ## Problems and Implementations
 
 ### Problem 1: Matrix Product
-**File:** `ExampleCodeToGenerateMatrix.java`
+**File:** `MatrixMultiplier.java`
 
 Description: This Java program accepts two matrices and displays their product.
 

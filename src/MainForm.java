@@ -57,7 +57,7 @@ public class MainForm extends JFrame {
     private void openSolverClass(String problemTitle) {
         switch (problemTitle) {
             case "Matrix Multiplication":
-                ExampleCodeToGenerateMatrix matrixSolver = new ExampleCodeToGenerateMatrix();
+                MatrixMultiplier matrixSolver = new MatrixMultiplier();
                 matrixSolver.setVisible(true);
                 break;
             case "Interpolation":
@@ -73,10 +73,6 @@ public class MainForm extends JFrame {
                 determinantSolver.setVisible(true);
                 break;
         }
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(MainForm::new);
     }
 }
 
