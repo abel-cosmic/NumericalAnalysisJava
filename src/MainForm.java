@@ -82,7 +82,7 @@ public class MainForm extends JFrame {
 
 class GroupMembersList {
     public static void displayGroupMembers() {
-        String[] members = {"1.Abel Shibabaw RCS/291/21","2.Dagim Tesfaye RCS/300/21" ,"3.Mohammed Ibrahim RCS/2013/22, 4.Mesay Mesfin RCS/322/21 "};
+        String[] members = {"1.Abel Shibabaw RCS/291/21","2.Dagim Tesfaye RCS/300/21" ,"3.Mohammed Ibrahim RCS/2013/22", "4.Mesay Mesfin RCS/322/21 "};
         String membersList = String.join("\n", members);
         JOptionPane.showMessageDialog(null, "Group Members:\n" + membersList, "Group Members List", JOptionPane.INFORMATION_MESSAGE);
     }
