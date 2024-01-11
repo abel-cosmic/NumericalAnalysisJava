@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 public class MatrixUtils {
-
     // Calculate determinant of a square matrix
     public static int calculateDeterminant(ArrayList<ArrayList<Integer>> matrix) {
         int size = matrix.size();
@@ -24,12 +23,10 @@ public class MatrixUtils {
         int sign = (int) Math.pow(-1, row + col);
         return sign * calculateDeterminant(getMinor(matrix, row, col));
     }
-
     // Get the minor of a matrix element
     private static ArrayList<ArrayList<Integer>> getMinor(ArrayList<ArrayList<Integer>> matrix, int row, int col) {
         int size = matrix.size();
         ArrayList<ArrayList<Integer>> minor = new ArrayList<>();
-
         for (int i = 0; i < size; i++) {
             if (i != row) {
                 ArrayList<Integer> rowList = new ArrayList<>();
@@ -41,7 +38,6 @@ public class MatrixUtils {
                 minor.add(rowList);
             }
         }
-
         return minor;
     }
 }

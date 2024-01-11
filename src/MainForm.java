@@ -21,7 +21,7 @@ public class MainForm extends JFrame {
         JButton btnInterpolation = createProblemButton("Interpolation", "A Java program that implements interpolation using divided difference formula. Your program should display the divided difference table and the corresponding equation.");
         JButton btnCramersRule = createProblemButton("Cramer's Rule", "A Java program that solves system of linear equations using Cramer’s rule. In your program, try to apply concepts of object-oriented programming and GUI.");
         JButton btnDeterminant = createProblemButton("Determinant", "A Java program that finds the determinant of a square matrix of any row and column size.");
-        JButton btnGroupMembers = new JButton("Group Members");
+        JButton btnGroupMembers = createProblemButton("Group Members", "Display information about the group members.");
         btnGroupMembers.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -76,7 +76,7 @@ public class MainForm extends JFrame {
                 interpolationSolver.setVisible(true);
                 break;
             case "Cramer's Rule":
-                CreamersRuleSolver cramerSolver = new CreamersRuleSolver();
+                CreamerRuleSolver cramerSolver = new CreamerRuleSolver();
                 cramerSolver.setVisible(true);
                 break;
             case "Determinant":
@@ -98,7 +98,7 @@ public class MainForm extends JFrame {
 
 class GroupMembersList {
     public static void displayGroupMembers() {
-        String[] members = {"Abel Shibabaw RCS/291/21","Dagim Tesfaye RCS/300/21" ,"Mohammed Ibrahim RCS/2013/22"};
+        String[] members = {"1.Abel Shibabaw RCS/291/21","2.Dagim Tesfaye RCS/300/21" ,"3.Mohammed Ibrahim RCS/2013/22, 4.Mesay Mesfin RCS/322/21 "};
         String membersList = String.join("\n", members);
         JOptionPane.showMessageDialog(null, "Group Members:\n" + membersList, "Group Members List", JOptionPane.INFORMATION_MESSAGE);
     }

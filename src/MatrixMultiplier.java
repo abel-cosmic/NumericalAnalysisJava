@@ -3,11 +3,15 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
 public class MatrixMultiplier extends JFrame {
-    private JTextField rowsField1, colsField1, rowsField2, colsField2;
-    private JPanel matrixPanel1, matrixPanel2, resultPanel;
-    private JButton generateButton, clearButton, multiplyButton;
+    private final JTextField rowsField1;
+    private final JTextField colsField1;
+    private final JTextField rowsField2;
+    private  final JTextField colsField2;
+    private final JPanel matrixPanel1;
+    private final JPanel matrixPanel2;
+    private final JPanel resultPanel;
+
     public MatrixMultiplier() {
         super("Matrix Generator");
         JLabel matrix1Label = new JLabel(" Matrix 1:");
@@ -20,13 +24,13 @@ public class MatrixMultiplier extends JFrame {
         colsField1 = new JTextField(5);
         rowsField2 = new JTextField(5);
         colsField2 = new JTextField(5);
-        generateButton = new JButton("Generate Matrices");
+        JButton generateButton = new JButton("Generate Matrices");
         generateButton.setBackground(Color.BLUE);
         generateButton.setForeground(Color.WHITE);
-        clearButton = new JButton("Clear");
+        JButton clearButton = new JButton("Clear");
         clearButton.setBackground(Color.RED);
         clearButton.setForeground(Color.white);
-        multiplyButton = new JButton("Multiply");
+        JButton multiplyButton = new JButton("Multiply");
         multiplyButton.setBackground(Color.green);
         multiplyButton.setForeground(Color.white);
         matrixPanel1 = new JPanel();
@@ -98,24 +102,8 @@ public class MatrixMultiplier extends JFrame {
             matrixPanel1.setLayout(new GridLayout(rows1, cols1, 5, 5)); // Add padding
             matrixPanel2.setLayout(new GridLayout(rows2, cols2, 5, 5)); // Add padding
             resultPanel.setLayout(new GridLayout(rows1, cols2, 5, 5)); // Add padding
-            for (int i = 0; i < rows1; i++) {
-                for (int j = 0; j < cols1; j++) {
-                    JTextField textField = new JTextField(5);
-                    textField.setHorizontalAlignment(SwingConstants.CENTER);
-                    Font boldFont = new Font(textField.getFont().getName(), Font.BOLD, 18);
-                    textField.setFont(boldFont);
-                    matrixPanel1.add(textField);
-                }
-            }
-            for (int i = 0; i < rows2; i++) {
-                for (int j = 0; j < cols2; j++) {
-                    JTextField textField = new JTextField(5);
-                    textField.setHorizontalAlignment(SwingConstants.CENTER);
-                    Font boldFont = new Font(textField.getFont().getName(), Font.BOLD, 18);
-                    textField.setFont(boldFont);
-                    matrixPanel2.add(textField);
-                }
-            }
+            CreateInputField(rows1, cols1, matrixPanel1);
+            CreateInputField(rows2, cols2, matrixPanel2);
             matrixPanel1.revalidate();
             matrixPanel1.repaint();
             matrixPanel2.revalidate();
@@ -126,6 +114,19 @@ public class MatrixMultiplier extends JFrame {
             JOptionPane.showMessageDialog(this, "Invalid input. Please enter valid integers for rows and columns.", "Input Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    private void CreateInputField(int rows1, int cols1, JPanel matrixPanel1) {
+        for (int i = 0; i < rows1; i++) {
+            for (int j = 0; j < cols1; j++) {
+                JTextField textField = new JTextField(5);
+                textField.setHorizontalAlignment(SwingConstants.CENTER);
+                Font boldFont = new Font(textField.getFont().getName(), Font.BOLD, 18);
+                textField.setFont(boldFont);
+                matrixPanel1.add(textField);
+            }
+        }
+    }
+
     private void clearMatrices() {
         rowsField1.setText("");
         colsField1.setText("");
