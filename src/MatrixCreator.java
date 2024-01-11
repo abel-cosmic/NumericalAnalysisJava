@@ -1,11 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 
 public class MatrixCreator extends JFrame {
-    private JTextField rowsField, colsField;
+    private final JTextField rowsField;
+    private final JTextField colsField;
     private final JPanel matrixPanel;
     private JButton generateButton, clearButton;
 
@@ -31,19 +30,9 @@ public class MatrixCreator extends JFrame {
         add(inputPanel, BorderLayout.NORTH);
 
         // Register event handlers for the buttons
-        generateButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                generateMatrix();
-            }
-        });
+        generateButton.addActionListener(e -> generateMatrix());
 
-        clearButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                clearMatrix();
-            }
-        });
+        clearButton.addActionListener(e -> clearMatrix());
 
         // Add the matrix panel to the center of the main frame
         add(new JScrollPane(matrixPanel), BorderLayout.CENTER);

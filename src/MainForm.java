@@ -1,8 +1,6 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MainForm extends JFrame {
     public MainForm() {
@@ -12,22 +10,18 @@ public class MainForm extends JFrame {
         JPanel panel = new JPanel();
         panel.setBorder(new EmptyBorder(20, 10, 20, 10)); // Add padding
         panel.setLayout(new GridLayout(6, 1));
-        JButton question = createProblemButton("Questions", "1. A Java program that accepts two matrices and displays their product.\n" +
-                "2. A Java program that implements interpolation using divided difference formula. Your \n" +
-                "program should display the divided difference table and the corresponding equation.\n" +
-                "3. A Java program that finds the determinant of a square matrix of any row and column size\n" +
-                "4. A Java program that solves system of linear equations using Crammer’s rule.");
+        JButton question = createProblemButton("Questions", """
+                1. A Java program that accepts two matrices and displays their product.
+                2. A Java program that implements interpolation using divided difference formula. Your\s
+                program should display the divided difference table and the corresponding equation.
+                3. A Java program that finds the determinant of a square matrix of any row and column size
+                4. A Java program that solves system of linear equations using Crammer’s rule.""");
         JButton btnMatrixMultiplication = createProblemButton("Matrix Multiplication", "A Java program that accepts two matrices and displays their product.");
         JButton btnInterpolation = createProblemButton("Interpolation", "A Java program that implements interpolation using divided difference formula. Your program should display the divided difference table and the corresponding equation.");
         JButton btnCramersRule = createProblemButton("Cramer's Rule", "A Java program that solves system of linear equations using Cramer’s rule. In your program, try to apply concepts of object-oriented programming and GUI.");
         JButton btnDeterminant = createProblemButton("Determinant", "A Java program that finds the determinant of a square matrix of any row and column size.");
         JButton btnGroupMembers = createProblemButton("Group Members", "Display information about the group members.");
-        btnGroupMembers.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                GroupMembersList.displayGroupMembers();
-            }
-        });
+        btnGroupMembers.addActionListener(e -> GroupMembersList.displayGroupMembers());
         panel.add(question);
         panel.add(btnMatrixMultiplication);
         panel.add(btnInterpolation);
@@ -41,12 +35,7 @@ public class MainForm extends JFrame {
 
     private JButton createProblemButton(String problemTitle, String problemDescription) {
         JButton button = new JButton(problemTitle);
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                displaySolution(problemTitle, problemDescription);
-            }
-        });
+        button.addActionListener(e -> displaySolution(problemTitle, problemDescription));
         return button;
     }
 
@@ -68,7 +57,7 @@ public class MainForm extends JFrame {
     private void openSolverClass(String problemTitle) {
         switch (problemTitle) {
             case "Matrix Multiplication":
-                MatrixMultiplier matrixSolver = new MatrixMultiplier();
+                ExampleCodeToGenerateMatrix matrixSolver = new ExampleCodeToGenerateMatrix();
                 matrixSolver.setVisible(true);
                 break;
             case "Interpolation":
@@ -87,12 +76,7 @@ public class MainForm extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new MainForm();
-            }
-        });
+        SwingUtilities.invokeLater(MainForm::new);
     }
 }
 

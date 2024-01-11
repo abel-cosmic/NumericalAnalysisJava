@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class DeterminantSolver extends JFrame {
@@ -82,7 +80,7 @@ public class DeterminantSolver extends JFrame {
             matrixPanel.revalidate();
             matrixPanel.repaint();
         } catch (NumberFormatException ex) {
-            System.out.println(ex);
+//            System.out.println(ex);
             JOptionPane.showMessageDialog(this, "Invalid input. Please enter valid integers for rows and columns.", "Input Error", JOptionPane.ERROR_MESSAGE);
         }
     }

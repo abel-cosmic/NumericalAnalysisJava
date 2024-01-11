@@ -1,9 +1,7 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-public class MatrixMultiplier extends JFrame {
+public class ExampleCodeToGenerateMatrix extends JFrame {
     private final JTextField rowsField1;
     private final JTextField colsField1;
     private final JTextField rowsField2;
@@ -12,7 +10,7 @@ public class MatrixMultiplier extends JFrame {
     private final JPanel matrixPanel2;
     private final JPanel resultPanel;
 
-    public MatrixMultiplier() {
+    public ExampleCodeToGenerateMatrix() {
         super("Matrix Generator");
         JLabel matrix1Label = new JLabel(" Matrix 1:");
         JLabel matrix2Label = new JLabel(" Matrix 2:");
@@ -55,26 +53,11 @@ public class MatrixMultiplier extends JFrame {
         inputPanel.add(colsLabel2);
         inputPanel.add(colsField2);
         add(inputPanel, BorderLayout.NORTH);
-        generateButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                generateMatrices();
-            }
-        });
+        generateButton.addActionListener(e -> generateMatrices());
 
-        clearButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                clearMatrices();
-            }
-        });
+        clearButton.addActionListener(e -> clearMatrices());
 
-        multiplyButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                multiplyMatrices();
-            }
-        });
+        multiplyButton.addActionListener(e -> multiplyMatrices());
         JPanel matricesPanel = new JPanel(new GridLayout(1, 3, 10, 10));
         matricesPanel.add(new JScrollPane(matrixPanel1));
         matricesPanel.add(new JScrollPane(matrixPanel2));
@@ -99,7 +82,6 @@ public class MatrixMultiplier extends JFrame {
             matrixPanel1.removeAll();
             matrixPanel2.removeAll();
             resultPanel.removeAll();
-            matrixPanel1.setLayout(new GridLayout(rows1, cols1, 5, 5)); // Add padding
             matrixPanel2.setLayout(new GridLayout(rows2, cols2, 5, 5)); // Add padding
             resultPanel.setLayout(new GridLayout(rows1, cols2, 5, 5)); // Add padding
             CreateInputField(rows1, cols1, matrixPanel1);
@@ -193,17 +175,16 @@ public class MatrixMultiplier extends JFrame {
     private void displayResult(JPanel resultPanel, double[][] result) {
         resultPanel.removeAll();
         resultPanel.setLayout(new GridLayout(result.length, result[0].length, 5, 5)); // Add padding
-        for (int i = 0; i < result.length; i++) {
+        for (double[] doubles : result)
             for (int j = 0; j < result[0].length; j++) {
                 JTextField textField = new JTextField(5);
-                textField.setText(String.valueOf(result[i][j]));
+                textField.setText(String.valueOf(doubles[j]));
                 textField.setHorizontalAlignment(SwingConstants.CENTER);
                 Font boldFont = new Font(textField.getFont().getName(), Font.BOLD, 18);
                 textField.setFont(boldFont);
                 textField.setEditable(false);
                 resultPanel.add(textField);
             }
-        }
         resultPanel.revalidate();
         resultPanel.repaint();
     }
